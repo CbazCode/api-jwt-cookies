@@ -1,6 +1,7 @@
 const express = require('express');
 const { dbConnection } = require('./database/config.js');
 const cookieParser= require('cookie-parser');
+const { requireAuth } = require('./middleware/authMiddleware.js');
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.set('view engine', 'ejs');
 
 // routes
 app.get('/', (req, res) => res.render('home'));
-app.get('/smoothies', (req, res) => res.render('smoothies'));
+app.get('/smoothies', requireAuth ,(req, res) => res.render('smoothies'));
 app.use(require('./routes/authRoutes'));
 
 app.listen(3000, ()=>console.log('Server on port 3000'));
