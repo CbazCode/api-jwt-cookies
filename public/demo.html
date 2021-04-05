@@ -5,24 +5,26 @@ components :
 -> Table
 -> TableHeader
 -> TableRow
--> TableSortLabel -> active - direction 
--> TableData -> Props: align - padding - size - sortDirection - bgColor 
+-> TableSortLabel -> active - direction - name - value
+-> TableData -> Props: align - padding - size - bgColor 
 -> TableFooter
 -> TableInfo -> Props: align
+-> TablePagination -> totalSize - limit - currentPage - onChangeCurrentPage
 
--> TablePagination -> totalSize - sizePerPage - currentPage - changeCurrentPage - firstPageText - lastPageText
+total
+current
+quantity
 
     //Filtro:
     components:
     -> FilterContainer
-    -> TagContainer
-    -> Tag (Contain button) -> Props: color - size 
-    -> InputSearch
-    -> FilterButton
-        components:
-        //free - in our case:
-        2 select
-        n checkboxs
+    <!-- -> TagContainer
+    -> Tag (Contain button) -> Props: color - size  -->
+    <!-- -> InputSearch -->
+    //free - in our case:
+    2 select
+    n checkboxs
+    -> FilterButtons:
         Button -> CleanButton
         Button -> ApplyFilter
 
@@ -111,12 +113,12 @@ components :
     -> TimelineConnector
 
 <Timeline>
-    <TimelineItem>
-      <TimelineSeparator>
+    <TimelineItem iconName="user" isFinal>
+      <!-- <TimelineSeparator>
         <TimelineDot />
         <TimelineConnector />
-      </TimelineSeparator>
-      <TimelineContent>Eat</TimelineContent>
+      </TimelineSeparator> -->
+      <!-- <TimelineContent>Eat</TimelineContent> -->
     </TimelineItem>
     <TimelineItem>
       <TimelineSeparator>
@@ -131,7 +133,10 @@ components :
       </TimelineSeparator>
       <TimelineContent>Sleep</TimelineContent>
     </TimelineItem>
-  </Timeline>
+</Timeline>
+
+
+
 
 
 
